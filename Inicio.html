@@ -20,6 +20,7 @@
       color: var(--text);
     }
 
+    /* ===== HEADER ===== */
     header {
       background: white;
       padding: 20px 40px;
@@ -38,11 +39,6 @@
       color: var(--primary);
     }
 
-    header span {
-      font-size: 14px;
-      color: #666;
-    }
-
     nav a {
       margin-left: 20px;
       text-decoration: none;
@@ -50,6 +46,7 @@
       font-weight: 500;
     }
 
+    /* ===== BANNER / SLIDER ===== */
     .banner {
       position: relative;
       height: 360px;
@@ -96,6 +93,7 @@
       background: white;
     }
 
+    /* ===== TÍTULO CENTRAL ===== */
     .hero-title {
       text-align: center;
       padding: 70px 20px 40px;
@@ -110,14 +108,6 @@
     .hero-title p {
       font-size: 18px;
       color: #666;
-    }
-
-    footer {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 25px;
-      margin-top: 50px;
     }
 
     .cta-whatsapp {
@@ -139,19 +129,90 @@
       opacity: 0.9;
     }
 
+    /* ===== PRODUTOS ===== */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .produtos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .produto {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .produto img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .produto h3 {
+      margin: 15px 0 5px;
+    }
+
+    .produto span {
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .produto button {
+      margin-top: auto;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background: var(--primary);
+      color: white;
+      font-size: 15px;
+    }
+
+    .produto button:hover {
+      opacity: 0.9;
+    }
+
+    /* ===== RESPONSIVO ===== */
+    @media (max-width: 900px) {
+      .produtos {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 600px) {
       .hero-title h2 {
         font-size: 32px;
       }
+
+      .produtos {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 50px;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div>
-    <h1>Feito no Lar</h1>
-  </div>
+  <h1>Feito no Lar</h1>
   <nav>
     <a href="index.html">Início</a>
     <a href="produtos.html">Produtos</a>
@@ -176,31 +237,40 @@
 <section class="hero-title">
   <h2>Feito no Lar</h2>
   <p>Conjuntos elegantes para transformar sua cozinha</p>
-  <a class="cta-whatsapp" href="https://wa.me/554791631238" target="_blank">Fazer pedido no WhatsApp</a>
+  <a class="cta-whatsapp" href="https://wa.me/554791631238" target="_blank">
+    Fazer pedido no WhatsApp
+  </a>
 </section>
 
 <section class="container" id="produtos">
   <h2 style="text-align:center;margin-bottom:40px">Produtos em destaque</h2>
+
   <div class="produtos">
     <div class="produto">
-      <img src="https://picsum.photos/300/200?1" />
+      <img src="https://picsum.photos/300/200?1">
       <h3>Jogo Americano Floral</h3>
       <span>R$ 79,90</span>
-      <button onclick="window.open('https://wa.me/554791631238?text=Olá! Gostaria de comprar o Jogo Americano Floral','_blank')">Comprar no WhatsApp</button>
+      <button onclick="window.open('https://wa.me/554791631238?text=Olá! Gostaria de comprar o Jogo Americano Floral','_blank')">
+        Comprar no WhatsApp
+      </button>
     </div>
 
     <div class="produto">
-      <img src="https://picsum.photos/300/200?2" />
+      <img src="https://picsum.photos/300/200?2">
       <h3>Guardanapo Decorativo</h3>
       <span>R$ 39,90</span>
-      <button onclick="window.open('https://wa.me/554791631238?text=Olá! Gostaria de comprar o Guardanapo Decorativo','_blank')">Comprar no WhatsApp</button>
+      <button onclick="window.open('https://wa.me/554791631238?text=Olá! Gostaria de comprar o Guardanapo Decorativo','_blank')">
+        Comprar no WhatsApp
+      </button>
     </div>
 
     <div class="produto">
-      <img src="https://picsum.photos/300/200?3" />
+      <img src="https://picsum.photos/300/200?3">
       <h3>Kit Mesa Posta</h3>
       <span>R$ 149,90</span>
-      <button onclick="window.open('https://wa.me/554791631238?text=Olá! Gostaria de comprar o Kit Mesa Posta','_blank')">Comprar no WhatsApp</button>
+      <button onclick="window.open('https://wa.me/554791631238?text=Olá! Gostaria de comprar o Kit Mesa Posta','_blank')">
+        Comprar no WhatsApp
+      </button>
     </div>
   </div>
 </section>
