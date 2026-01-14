@@ -8,14 +8,14 @@
   <style>
     :root {
       --primary: #e295b5;
-      --text: #333;
       --bg: #fafafa;
+      --text: #333;
     }
 
     body {
       margin: 0;
       font-family: 'Segoe UI', Arial, sans-serif;
-      background-color: var(--bg);
+      background: var(--bg);
       color: var(--text);
     }
 
@@ -34,10 +34,10 @@
 
     .logo {
       grid-column: 2;
-      margin: 0;
       font-size: 34px;
       color: var(--primary);
       letter-spacing: 2px;
+      margin: 0;
       text-align: center;
     }
 
@@ -55,116 +55,65 @@
 
     /* BANNER */
     .banner {
-      position: relative;
-      height: 360px;
-      overflow: hidden;
-    }
-
-    .slide {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .slide.active {
-      opacity: 1;
-    }
-
-    .dots {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.6);
-      cursor: pointer;
-    }
-
-    .dot.active {
-      background: white;
-    }
-
-    /* HERO */
-    .hero-title {
-      text-align: center;
-      padding: 70px 20px 40px;
-    }
-
-    .hero-title h2 {
-      font-size: 44px;
-      color: var(--primary);
-    }
-
-    .hero-title p {
-      font-size: 18px;
-      color: #666;
-    }
-
-    .cta-whatsapp {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 14px 28px;
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: 600;
+      height: 320px;
+      background: url('https://picsum.photos/1600/600?random=5') center/cover no-repeat;
     }
 
     /* PRODUTOS */
     .container {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .container h2 {
+      font-size: 36px;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .container p {
+      color: #666;
+      margin-bottom: 40px;
     }
 
     .produtos {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
+      gap: 30px;
     }
 
     .produto {
       background: white;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-      text-align: center;
+      border-radius: 18px;
+      padding: 30px 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: transform 0.25s ease;
     }
 
-    .produto img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 15px;
+    .produto:hover {
+      transform: translateY(-6px);
     }
 
     .produto h3 {
-      margin: 10px 0;
+      margin: 0;
+      font-size: 20px;
     }
 
-    .produto span {
-      display: block;
-      margin-bottom: 15px;
-      color: #777;
-    }
-
-    .produto button {
-      padding: 10px 20px;
+    /* CARRINHO */
+    .cart {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
       background: var(--primary);
       color: white;
-      border: none;
-      border-radius: 20px;
+      padding: 15px 22px;
+      border-radius: 40px;
       cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      font-weight: bold;
     }
 
     footer {
@@ -172,7 +121,7 @@
       color: white;
       text-align: center;
       padding: 25px;
-      margin-top: 50px;
+      margin-top: 60px;
     }
 
     @media (max-width: 900px) {
@@ -185,8 +134,9 @@
       .produtos {
         grid-template-columns: 1fr;
       }
-      .hero-title h2 {
-        font-size: 32px;
+
+      .logo {
+        font-size: 26px;
       }
     }
   </style>
@@ -197,83 +147,79 @@
   <h1 class="logo">ℱℯ𝒾𝓉ℴ 𝓃ℴ ℒ𝒶𝓇</h1>
   <nav>
     <a href="Inicio.html">Início</a>
-    <a href="Produtos.html">Produtos</a>
+    <a href="produtos.html">Produtos</a>
   </nav>
 </header>
 
-<section class="banner">
-  <div class="slide active" style="background-image:url('https://picsum.photos/1600/600?1')"></div>
-  <div class="slide" style="background-image:url('https://picsum.photos/1600/600?2')"></div>
-  <div class="slide" style="background-image:url('https://picsum.photos/1600/600?3')"></div>
-
-  <div class="dots">
-    <span class="dot active" onclick="goToSlide(0)"></span>
-    <span class="dot" onclick="goToSlide(1)"></span>
-    <span class="dot" onclick="goToSlide(2)"></span>
-  </div>
-</section>
-
-<section class="hero-title">
-  <h2>Conjuntos elegantes para transformar sua cozinha</h2>
-  <p>Escolha seu produto e peça direto no WhatsApp</p>
-  <a class="cta-whatsapp" href="https://wa.me/554791631238" target="_blank">
-    Fazer pedido no WhatsApp
-  </a>
-</section>
+<section class="banner"></section>
 
 <section class="container">
-  <h2 style="text-align:center;margin-bottom:40px">Produtos em destaque</h2>
+  <h2>Produtos em Destaque</h2>
+  <p>Clique no produto para adicionar ao carrinho</p>
 
   <div class="produtos">
-    <div class="produto">
-      <img src="https://picsum.photos/300/200?4">
-      <h3>Jogo Americano Floral</h3>
-      <span>R$ 79,90</span>
-      <button onclick="window.open('https://wa.me/554791631238?text=Quero o Jogo Americano Floral')">
-        Comprar no WhatsApp
-      </button>
+    <div class="produto" onclick="confirmarCarrinho('Jogos Americanos')">
+      <h3>Jogos Americanos</h3>
     </div>
 
-    <div class="produto">
-      <img src="https://picsum.photos/300/200?5">
-      <h3>Kit Mesa Posta</h3>
-      <span>R$ 149,90</span>
-      <button onclick="window.open('https://wa.me/554791631238?text=Quero o Kit Mesa Posta')">
-        Comprar no WhatsApp
-      </button>
+    <div class="produto" onclick="confirmarCarrinho('Caminhos de Mesa')">
+      <h3>Caminhos de Mesa</h3>
     </div>
 
-    <div class="produto">
-      <img src="https://picsum.photos/300/200?6">
-      <h3>Guardanapos Premium</h3>
-      <span>R$ 39,90</span>
-      <button onclick="window.open('https://wa.me/554791631238?text=Quero os Guardanapos Premium')">
-        Comprar no WhatsApp
-      </button>
+    <div class="produto" onclick="confirmarCarrinho('Guardanapos de Pano')">
+      <h3>Guardanapos de Pano</h3>
+    </div>
+
+    <div class="produto" onclick="confirmarCarrinho('Capas de Almofada')">
+      <h3>Capas de Almofada</h3>
+    </div>
+
+    <div class="produto" onclick="confirmarCarrinho('Panos de Prato Premium')">
+      <h3>Panos de Prato Premium</h3>
+    </div>
+
+    <div class="produto" onclick="confirmarCarrinho('Kits para Mesa Posta')">
+      <h3>Kits para Mesa Posta</h3>
     </div>
   </div>
 </section>
+
+<div class="cart" onclick="finalizarPedido()">
+  Finalizar pedido 🛒
+</div>
 
 <footer>
   © 2026 · Feito no Lar · Pedidos via WhatsApp
 </footer>
 
 <script>
-  let index = 0;
-  const slides = document.querySelectorAll('.slide');
-  const dots = document.querySelectorAll('.dot');
+  const carrinho = [];
+  const whatsapp = '554791631238';
 
-  function goToSlide(i) {
-    slides.forEach(s => s.classList.remove('active'));
-    dots.forEach(d => d.classList.remove('active'));
-    slides[i].classList.add('active');
-    dots[i].classList.add('active');
-    index = i;
+  function confirmarCarrinho(item) {
+    const confirmar = confirm(`Deseja adicionar "${item}" ao carrinho?`);
+    if (confirmar) {
+      carrinho.push(item);
+      alert('Produto adicionado ao carrinho!');
+    }
   }
 
-  setInterval(() => {
-    goToSlide((index + 1) % slides.length);
-  }, 4000);
+  function finalizarPedido() {
+    if (carrinho.length === 0) {
+      alert('Seu carrinho está vazio');
+      return;
+    }
+
+    let mensagem = 'Olá! Gostaria de fazer um pedido:%0A%0A';
+    carrinho.forEach(item => {
+      mensagem += '- ' + item + '%0A';
+    });
+
+    window.open(
+      `https://wa.me/${whatsapp}?text=${mensagem}`,
+      '_blank'
+    );
+  }
 </script>
 
 </body>
