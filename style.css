@@ -1,12 +1,9 @@
 :root {
-  --primary: #9c9a6a;
-  --secondary: #efeede;
-  --text: #333;
-  --bg: #f6f6f2;
-}
-
-* {
-  box-sizing: border-box;
+  --primary: #b30000;    /* vermelho escuro */
+  --secondary: #fbb7d7;  /* rosa claro */
+  --text: #4d0000;       /* texto escuro */
+  --bg: #fbb7d7;         /* fundo rosa */
+  --highlight: #ffffff;   /* branco para o efeito de luz */
 }
 
 body {
@@ -32,106 +29,85 @@ nav a {
   margin-left: 25px;
   text-decoration: none;
   color: var(--text);
-  font-weight: 500;
+  font-weight: 600;
 }
 
-/* BANNER */
-.banner {
-  position: relative;
-  height: 360px;
-  overflow: hidden;
-}
-
-.slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
-.slide.active {
-  opacity: 1;
-}
-
-.dots {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.6);
-  cursor: pointer;
-}
-
-.dot.active {
-  background: white;
-}
-
-/* LOGO COM BORDA INFINITA */
+/* HERO COM LOGO E QUADRADOS */
 .hero {
   position: relative;
-  background: var(--primary);
   padding: 90px 20px;
   text-align: center;
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--highlight) 100%);
   overflow: hidden;
-}
-
-/* EXTENSÃO INFINITA LATERAL */
-.hero::before,
-.hero::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 100vw;
-  height: 100%;
-  background: transparent;
-  border-top: 4px solid #000;
-  border-bottom: 4px solid #000;
-}
-
-/* ESQUERDA */
-.hero::before {
-  right: 50%;
-  border-left: 4px solid #000;
-}
-
-/* DIREITA */
-.hero::after {
-  left: 50%;
-  border-right: 4px solid #000;
 }
 
 /* LOGO CENTRAL */
 .hero img {
   position: relative;
   z-index: 2;
-  width: 320px;
-  max-width: 90%;
-  background: var(--primary);
-  padding: 40px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  width: 350px;
+  max-width: 80%;
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(179,0,0,0.4);
+  border-radius: 12px;
+}
+
+/* QUADRADOS DAS MENSAGENS */
+.hero .mensagens {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 1;
+}
+
+.hero .mensagem {
+  display: flex;
+  flex-direction: column;      /* mantém a linha quebrando naturalmente */
+  align-items: center;         /* centraliza horizontalmente */
+  justify-content: center;     /* centraliza verticalmente */
+  text-align: center;          /* centraliza o texto */
+  padding: 16px;
+  font-size: 16px;
+  color: #555;
+  background: var(--secondary);
+  margin: 5px;
+  border-radius: 12px;
+  white-space: normal;         /* permite quebra de linha */
+  line-height: 1.3;
+}
+
+/* Diferenciar tamanhos sem cortar frases */
+.hero .mensagem.pequena { width: 150px; min-height: 150px; }
+.hero .mensagem.media  { width: 220px; min-height: 220px; }
+.hero .mensagem.grande { width: 280px; min-height: 280px; }
+
+.hero .mensagem.centralizada {
+  display: flex;
+  align-items: center;      /* vertical */
+  justify-content: center;  /* horizontal */
+  text-align: center;
+  white-space: normal;      /* permite quebra natural de linha */
+  height: 100%;             /* ocupar toda a altura do quadrado */
 }
 
 
-/* PRODUTOS */
+/* PRODUTOS - tela inicial (sumário pequeno) */
 .container {
   max-width: 1200px;
   margin: auto;
-  padding: 70px 30px;
+  padding: 50px 20px;
+  text-align: center;
 }
 
 .container h2 {
-  text-align: center;
-  margin-bottom: 40px;
+  color: var(--primary);
+  font-size: 2.5rem;
+  margin-bottom: 30px;
 }
 
 .produtos {
@@ -144,43 +120,35 @@ nav a {
   background: white;
   border-radius: 16px;
   padding: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 25px rgba(179,0,0,0.15);
   text-align: center;
-  display: flex;
-  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.produto:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(179,0,0,0.3);
 }
 
 .produto img {
   width: 100%;
   border-radius: 12px;
+  filter: brightness(0.95);
 }
 
 .produto h3 {
   margin: 15px 0 5px;
+  color: var(--primary);
 }
 
 .produto span {
-  font-weight: bold;
-  color: var(--primary);
+  font-style: italic;
+  color: var(--text);
   margin-bottom: 15px;
 }
 
-.produto button {
-  margin-top: auto;
-  padding: 12px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  background: var(--primary);
-  color: white;
-  font-size: 15px;
-}
-
-.produto button:hover {
-  opacity: 0.9;
-}
-
-/* CARRINHO */
+/* BOTÃO CARRINHO */
 .cart {
   position: fixed;
   bottom: 20px;
@@ -190,15 +158,36 @@ nav a {
   padding: 15px 22px;
   border-radius: 40px;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 20px rgba(179,0,0,0.6);
   font-weight: bold;
 }
 
 /* FOOTER */
 footer {
-  background: #222;
-  color: white;
+  background: var(--primary);
+  color: var(--secondary);
   text-align: center;
   padding: 25px;
   margin-top: 60px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .produtos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero img {
+    width: 60%;
+  }
+}
+
+@media (max-width: 600px) {
+  .produtos {
+    grid-template-columns: 1fr;
+  }
+
+  .hero img {
+    width: 80%;
+  }
 }
