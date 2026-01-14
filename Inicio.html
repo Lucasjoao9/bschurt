@@ -8,7 +8,6 @@
   <style>
     :root {
       --primary: #e295b5;
-      --secondary: #f7d9e5;
       --text: #333;
       --bg: #fafafa;
     }
@@ -61,12 +60,6 @@
       overflow: hidden;
     }
 
-    .slider {
-      height: 100%;
-      width: 100%;
-      position: relative;
-    }
-
     .slide {
       position: absolute;
       inset: 0;
@@ -110,7 +103,6 @@
     .hero-title h2 {
       font-size: 44px;
       color: var(--primary);
-      margin-bottom: 10px;
     }
 
     .hero-title p {
@@ -126,18 +118,55 @@
       color: white;
       text-decoration: none;
       border-radius: 30px;
-      font-size: 16px;
       font-weight: 600;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      transition: transform 0.2s ease, opacity 0.2s ease;
     }
 
-    .cta-whatsapp:hover {
-      transform: translateY(-2px);
-      opacity: 0.9;
+    /* PRODUTOS */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
     }
 
-    /* FOOTER */
+    .produtos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .produto {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .produto img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .produto h3 {
+      margin: 10px 0;
+    }
+
+    .produto span {
+      display: block;
+      margin-bottom: 15px;
+      color: #777;
+    }
+
+    .produto button {
+      padding: 10px 20px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
     footer {
       background: #222;
       color: white;
@@ -146,13 +175,18 @@
       margin-top: 50px;
     }
 
+    @media (max-width: 900px) {
+      .produtos {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 600px) {
+      .produtos {
+        grid-template-columns: 1fr;
+      }
       .hero-title h2 {
         font-size: 32px;
-      }
-
-      .logo {
-        font-size: 26px;
       }
     }
   </style>
@@ -164,56 +198,82 @@
   <nav>
     <a href="Inicio.html">Início</a>
     <a href="Produtos.html">Produtos</a>
-    <a href="https://www.instagram.com" target="_blank">Instagram</a>
   </nav>
 </header>
 
 <section class="banner">
-  <div class="slider">
-    <div class="slide active" style="background-image:url('https://picsum.photos/1600/600?random=1')"></div>
-    <div class="slide" style="background-image:url('https://picsum.photos/1600/600?random=2')"></div>
-    <div class="slide" style="background-image:url('https://picsum.photos/1600/600?random=3')"></div>
+  <div class="slide active" style="background-image:url('https://picsum.photos/1600/600?1')"></div>
+  <div class="slide" style="background-image:url('https://picsum.photos/1600/600?2')"></div>
+  <div class="slide" style="background-image:url('https://picsum.photos/1600/600?3')"></div>
 
-    <div class="dots">
-      <span class="dot active" onclick="goToSlide(0)"></span>
-      <span class="dot" onclick="goToSlide(1)"></span>
-      <span class="dot" onclick="goToSlide(2)"></span>
-    </div>
+  <div class="dots">
+    <span class="dot active" onclick="goToSlide(0)"></span>
+    <span class="dot" onclick="goToSlide(1)"></span>
+    <span class="dot" onclick="goToSlide(2)"></span>
   </div>
 </section>
 
 <section class="hero-title">
   <h2>Conjuntos elegantes para transformar sua cozinha</h2>
-  <p>Pedidos simples e rápidos pelo WhatsApp</p>
+  <p>Escolha seu produto e peça direto no WhatsApp</p>
   <a class="cta-whatsapp" href="https://wa.me/554791631238" target="_blank">
     Fazer pedido no WhatsApp
   </a>
 </section>
 
+<section class="container">
+  <h2 style="text-align:center;margin-bottom:40px">Produtos em destaque</h2>
+
+  <div class="produtos">
+    <div class="produto">
+      <img src="https://picsum.photos/300/200?4">
+      <h3>Jogo Americano Floral</h3>
+      <span>R$ 79,90</span>
+      <button onclick="window.open('https://wa.me/554791631238?text=Quero o Jogo Americano Floral')">
+        Comprar no WhatsApp
+      </button>
+    </div>
+
+    <div class="produto">
+      <img src="https://picsum.photos/300/200?5">
+      <h3>Kit Mesa Posta</h3>
+      <span>R$ 149,90</span>
+      <button onclick="window.open('https://wa.me/554791631238?text=Quero o Kit Mesa Posta')">
+        Comprar no WhatsApp
+      </button>
+    </div>
+
+    <div class="produto">
+      <img src="https://picsum.photos/300/200?6">
+      <h3>Guardanapos Premium</h3>
+      <span>R$ 39,90</span>
+      <button onclick="window.open('https://wa.me/554791631238?text=Quero os Guardanapos Premium')">
+        Comprar no WhatsApp
+      </button>
+    </div>
+  </div>
+</section>
+
 <footer>
-  <p>© 2026 - Feito no Lar · Pedidos via WhatsApp</p>
+  © 2026 · Feito no Lar · Pedidos via WhatsApp
 </footer>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-    let index = 0;
+  let index = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
 
-    function showSlide(i) {
-      slides.forEach(s => s.classList.remove('active'));
-      dots.forEach(d => d.classList.remove('active'));
-      slides[i].classList.add('active');
-      dots[i].classList.add('active');
-      index = i;
-    }
+  function goToSlide(i) {
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    slides[i].classList.add('active');
+    dots[i].classList.add('active');
+    index = i;
+  }
 
-    window.goToSlide = i => showSlide(i);
-
-    setInterval(() => {
-      showSlide((index + 1) % slides.length);
-    }, 4000);
-  });
+  setInterval(() => {
+    goToSlide((index + 1) % slides.length);
+  }, 4000);
 </script>
 
 </body>

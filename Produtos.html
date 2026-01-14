@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Produtos – Feito no Lar</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     :root {
@@ -15,132 +15,112 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Arial, sans-serif;
-      background: var(--bg);
+      background-color: var(--bg);
       color: var(--text);
     }
 
+    /* HEADER */
     header {
       background: white;
       padding: 20px 40px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
-    header h1 {
-      color: var(--primary);
+    .logo {
+      grid-column: 2;
       margin: 0;
+      font-size: 34px;
+      color: var(--primary);
+      letter-spacing: 2px;
+      text-align: center;
     }
 
-    header a {
+    nav {
+      grid-column: 3;
+      justify-self: end;
+    }
+
+    nav a {
+      margin-left: 20px;
       text-decoration: none;
       color: var(--text);
       font-weight: 500;
     }
 
+    /* CONTEÚDO */
     .container {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 60px 20px;
+      text-align: center;
     }
 
-    /* ===== CATEGORIAS ===== */
+    .container h2 {
+      font-size: 36px;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .container p {
+      color: #666;
+      margin-bottom: 50px;
+    }
+
+    /* GRID DE CATEGORIAS */
     .categorias {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
     }
 
     .categoria {
       background: white;
-      padding: 40px 20px;
       border-radius: 18px;
-      text-align: center;
-      cursor: pointer;
+      padding: 40px 20px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .categoria:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
     }
 
     .categoria h3 {
-      color: var(--primary);
       margin: 0;
+      font-size: 20px;
+      color: var(--text);
     }
 
-    /* ===== PRODUTOS ===== */
-    .produtos {
-      display: none;
-      margin-top: 50px;
-    }
-
-    .produtos.active {
-      display: block;
-    }
-
-    .grid-produtos {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-      margin-top: 25px;
-    }
-
-    .produto {
-      background: white;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .produto img {
-      width: 100%;
-      border-radius: 12px;
-    }
-
-    .produto h4 {
-      margin: 15px 0 5px;
-    }
-
-    .produto span {
-      color: var(--primary);
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    .produto button {
-      margin-top: auto;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      background: var(--primary);
+    /* FOOTER */
+    footer {
+      background: #222;
       color: white;
-      cursor: pointer;
-      font-size: 15px;
-    }
-
-    .voltar {
-      margin-top: 30px;
-      display: inline-block;
-      cursor: pointer;
-      color: var(--primary);
-      font-weight: bold;
+      text-align: center;
+      padding: 25px;
+      margin-top: 60px;
     }
 
     @media (max-width: 900px) {
-      .grid-produtos {
+      .categorias {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 600px) {
-      .grid-produtos {
+      .categorias {
         grid-template-columns: 1fr;
+      }
+
+      .container h2 {
+        font-size: 28px;
       }
     }
   </style>
@@ -148,67 +128,57 @@
 <body>
 
 <header>
-  <h1>Feito no Lar</h1>
-  <a href="Inicio.html">← Voltar para a home</a>
+  <h1 class="logo">ℱℯ𝒾𝓉ℴ 𝓃ℴ ℒ𝒶𝓇</h1>
+  <nav>
+    <a href="Inicio.html">Início</a>
+    <a href="Produtos.html">Produtos</a>
+  </nav>
 </header>
 
 <section class="container">
+  <h2>Nossos Produtos</h2>
+  <p>Escolha uma categoria para ver as opções disponíveis</p>
 
-  <!-- CATEGORIAS -->
-  <div class="categorias" id="categorias">
-    <div class="categoria" onclick="abrirCategoria('jogos')"><h3>Jogos Americanos</h3></div>
-    <div class="categoria" onclick="abrirCategoria('caminhos')"><h3>Caminhos de Mesa</h3></div>
-    <div class="categoria" onclick="abrirCategoria('guardanapos')"><h3>Guardanapos de Pano</h3></div>
-    <div class="categoria" onclick="abrirCategoria('almofadas')"><h3>Capas de Almofada</h3></div>
-    <div class="categoria" onclick="abrirCategoria('panos')"><h3>Panos de Prato Premium</h3></div>
-    <div class="categoria" onclick="abrirCategoria('mesa')"><h3>Kits para Mesa Posta</h3></div>
-    <div class="categoria" onclick="abrirCategoria('presentes')"><h3>Kits Presente</h3></div>
-  </div>
-
-  <!-- PRODUTOS -->
-  <div class="produtos" id="jogos">
-    <h2>Jogos Americanos</h2>
-    <div class="grid-produtos">
-      <div class="produto">
-        <img src="https://picsum.photos/300/200?1">
-        <h4>Jogo Americano Floral</h4>
-        <span>R$ 79,90</span>
-        <button onclick="comprar('Jogo Americano Floral')">Comprar no WhatsApp</button>
-      </div>
+  <div class="categorias">
+    <div class="categoria" onclick="abrirWhats('Jogos americanos')">
+      <h3>Jogos Americanos</h3>
     </div>
-    <span class="voltar" onclick="voltar()">← Voltar às categorias</span>
-  </div>
 
-  <div class="produtos" id="presentes">
-    <h2>Kits Presente</h2>
-    <div class="grid-produtos">
-      <div class="produto">
-        <img src="https://picsum.photos/300/200?2">
-        <h4>Kit Presente Dia das Mães</h4>
-        <span>R$ 189,90</span>
-        <button onclick="comprar('Kit Presente Dia das Mães')">Comprar no WhatsApp</button>
-      </div>
+    <div class="categoria" onclick="abrirWhats('Caminhos de mesa')">
+      <h3>Caminhos de Mesa</h3>
     </div>
-    <span class="voltar" onclick="voltar()">← Voltar às categorias</span>
-  </div>
 
+    <div class="categoria" onclick="abrirWhats('Guardanapos de pano')">
+      <h3>Guardanapos de Pano</h3>
+    </div>
+
+    <div class="categoria" onclick="abrirWhats('Capas de almofada')">
+      <h3>Capas de Almofada</h3>
+    </div>
+
+    <div class="categoria" onclick="abrirWhats('Panos de prato premium')">
+      <h3>Panos de Prato Premium</h3>
+    </div>
+
+    <div class="categoria" onclick="abrirWhats('Kits para mesa posta')">
+      <h3>Kits para Mesa Posta</h3>
+    </div>
+
+    <div class="categoria" onclick="abrirWhats('Kits presente para datas especiais')">
+      <h3>Kits Presente (Datas Especiais)</h3>
+    </div>
+  </div>
 </section>
 
+<footer>
+  © 2026 · Feito no Lar · Pedidos via WhatsApp
+</footer>
+
 <script>
-  function abrirCategoria(id) {
-    document.getElementById('categorias').style.display = 'none';
-    document.querySelectorAll('.produtos').forEach(p => p.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-  }
-
-  function voltar() {
-    document.getElementById('categorias').style.display = 'grid';
-    document.querySelectorAll('.produtos').forEach(p => p.classList.remove('active'));
-  }
-
-  function comprar(produto) {
+  function abrirWhats(produto) {
+    const msg = `Olá! Gostaria de ver as opções de ${produto}.`;
     window.open(
-      `https://wa.me/554791631238?text=Olá! Gostaria de comprar: ${produto}`,
+      `https://wa.me/554791631238?text=${encodeURIComponent(msg)}`,
       '_blank'
     );
   }
