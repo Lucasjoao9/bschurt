@@ -88,12 +88,60 @@ nav a {
 
 .hero .mensagem.centralizada {
   display: flex;
-  align-items: center;      /* vertical */
-  justify-content: center;  /* horizontal */
+  align-items: center;       /* vertical */
+  justify-content: center;   /* horizontal */
   text-align: center;
-  white-space: normal;      /* permite quebra natural de linha */
-  height: 100%;             /* ocupar toda a altura do quadrado */
+  white-space: normal;       /* permite quebra natural de linha */
+  height: 100%;              /* ocupar toda a altura do quadrado */
+  padding: 10px;             /* um pouco de espaçamento interno */
+  box-sizing: border-box;    /* garantir que padding não quebre o layout */
+  word-wrap: break-word;     /* quebra palavras longas para não vazar */
+  overflow-wrap: break-word;
 }
+
+/* Responsividade para quadrados com mensagens */
+@media (max-width: 768px) {
+  .hero .mensagem.pequena {
+    width: 120px;
+    min-height: 120px;
+    font-size: 14px;
+  }
+  .hero .mensagem.media {
+    width: 180px;
+    min-height: 180px;
+    font-size: 15px;
+  }
+  .hero .mensagem.grande {
+    width: 220px;
+    min-height: 220px;
+    font-size: 16px;
+  }
+  
+  /* Ajuste para mensagens centralizadas se necessário */
+  .hero .mensagem.centralizada {
+    padding: 8px;
+  }
+}
+
+/* Ajuste geral para telas muito pequenas */
+@media (max-width: 400px) {
+  .hero .mensagem.pequena {
+    width: 100px;
+    min-height: 100px;
+    font-size: 13px;
+  }
+  .hero .mensagem.media {
+    width: 140px;
+    min-height: 140px;
+    font-size: 14px;
+  }
+  .hero .mensagem.grande {
+    width: 180px;
+    min-height: 180px;
+    font-size: 15px;
+  }
+}
+
 
 
 /* PRODUTOS - tela inicial (sumário pequeno) */
