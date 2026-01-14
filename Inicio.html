@@ -8,6 +8,7 @@
   <style>
     :root {
       --primary: #e295b5;
+      --secondary: #f7d9e5;
       --bg: #fafafa;
       --text: #333;
     }
@@ -55,25 +56,26 @@
 
     /* BANNER */
     .banner {
-      height: 320px;
-      background: url('https://picsum.photos/1600/600?random=5') center/cover no-repeat;
+      height: 350px;
+      background: url('https://picsum.photos/1600/600?random=10') center/cover no-repeat;
     }
 
     /* PRODUTOS */
     .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: auto;
       padding: 60px 20px;
-      text-align: center;
     }
 
     .container h2 {
+      text-align: center;
       font-size: 36px;
       color: var(--primary);
       margin-bottom: 10px;
     }
 
     .container p {
+      text-align: center;
       color: #666;
       margin-bottom: 40px;
     }
@@ -87,19 +89,43 @@
     .produto {
       background: white;
       border-radius: 18px;
-      padding: 30px 20px;
+      padding: 20px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      cursor: pointer;
-      transition: transform 0.25s ease;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
     }
 
-    .produto:hover {
-      transform: translateY(-6px);
+    .produto img {
+      width: 100%;
+      border-radius: 14px;
+      margin-bottom: 15px;
     }
 
     .produto h3 {
-      margin: 0;
-      font-size: 20px;
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+
+    .produto span {
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .produto button {
+      margin-top: auto;
+      padding: 12px;
+      border: none;
+      border-radius: 25px;
+      background: var(--primary);
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .produto button:hover {
+      opacity: 0.9;
     }
 
     /* CARRINHO */
@@ -147,7 +173,7 @@
   <h1 class="logo">ℱℯ𝒾𝓉ℴ 𝓃ℴ ℒ𝒶𝓇</h1>
   <nav>
     <a href="Inicio.html">Início</a>
-    <a href="produtos.html">Produtos</a>
+    <a href="Produtos.html">Produtos</a>
   </nav>
 </header>
 
@@ -155,31 +181,34 @@
 
 <section class="container">
   <h2>Produtos em Destaque</h2>
-  <p>Clique no produto para adicionar ao carrinho</p>
+  <p>Clique para adicionar ao carrinho</p>
 
   <div class="produtos">
-    <div class="produto" onclick="confirmarCarrinho('Jogos Americanos')">
-      <h3>Jogos Americanos</h3>
+    <div class="produto">
+      <img src="https://picsum.photos/300/200?1">
+      <h3>Jogo Americano Floral</h3>
+      <span>R$ 79,90</span>
+      <button onclick="confirmarCarrinho('Jogo Americano Floral - R$ 79,90')">
+        Adicionar ao carrinho
+      </button>
     </div>
 
-    <div class="produto" onclick="confirmarCarrinho('Caminhos de Mesa')">
-      <h3>Caminhos de Mesa</h3>
+    <div class="produto">
+      <img src="https://picsum.photos/300/200?2">
+      <h3>Guardanapo Decorativo</h3>
+      <span>R$ 39,90</span>
+      <button onclick="confirmarCarrinho('Guardanapo Decorativo - R$ 39,90')">
+        Adicionar ao carrinho
+      </button>
     </div>
 
-    <div class="produto" onclick="confirmarCarrinho('Guardanapos de Pano')">
-      <h3>Guardanapos de Pano</h3>
-    </div>
-
-    <div class="produto" onclick="confirmarCarrinho('Capas de Almofada')">
-      <h3>Capas de Almofada</h3>
-    </div>
-
-    <div class="produto" onclick="confirmarCarrinho('Panos de Prato Premium')">
-      <h3>Panos de Prato Premium</h3>
-    </div>
-
-    <div class="produto" onclick="confirmarCarrinho('Kits para Mesa Posta')">
-      <h3>Kits para Mesa Posta</h3>
+    <div class="produto">
+      <img src="https://picsum.photos/300/200?3">
+      <h3>Kit Mesa Posta</h3>
+      <span>R$ 149,90</span>
+      <button onclick="confirmarCarrinho('Kit Mesa Posta - R$ 149,90')">
+        Adicionar ao carrinho
+      </button>
     </div>
   </div>
 </section>
@@ -197,8 +226,7 @@
   const whatsapp = '554791631238';
 
   function confirmarCarrinho(item) {
-    const confirmar = confirm(`Deseja adicionar "${item}" ao carrinho?`);
-    if (confirmar) {
+    if (confirm(`Deseja adicionar "${item}" ao carrinho?`)) {
       carrinho.push(item);
       alert('Produto adicionado ao carrinho!');
     }
