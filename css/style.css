@@ -1,0 +1,237 @@
+:root {
+  --vinho: #6f143a;
+  --rosa: #f5c7d3;
+  --bege: #f6f2ec;
+  --texto: #3a2a2a;
+  --branco: #ffffff;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bege);
+  color: var(--texto);
+  padding-top: 240px;
+}
+
+/* ================= HEADER ================= */
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--vinho);
+  z-index: 1000;
+}
+
+.header-inner {
+  padding: 35px 20px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-img {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+/* MENU */
+.menu {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.menu a {
+  background: var(--rosa);
+  color: var(--vinho);
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  background: #f1b8c7;
+}
+
+/* ================= BENEFÍCIOS ================= */
+.beneficios {
+  background: var(--bege);
+  padding: 70px 1px 1px; /* menos espaço embaixo */
+  margin-top: 40px;       /* reduz bastante o gap */
+}
+
+
+.beneficios-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center; /* em vez de space-between */
+  gap: 120px;              /* controla a distância entre os 2 blocos */
+}
+
+
+.beneficio {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: var(--vinho);
+}
+
+.icon {
+  width: 52px;
+  height: 52px;
+  fill: none;
+  stroke: #7a1b43;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+.beneficio-texto strong {
+  display: block;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.beneficio-texto span {
+  display: block;
+  font-size: 14px;
+  margin-top: 2px;
+  opacity: 0.9;
+}
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .beneficios-container {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .beneficio {
+    flex-direction: column;
+  }
+}
+
+
+/* ================= CATEGORIAS ================= */
+.categorias {
+  padding: 30px 40px 70px; /* menos espaço em cima */
+}
+
+.titulo-produtos {
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 2px;
+  font-weight: 400;
+  margin-bottom: 35px;
+  position: relative;
+}
+
+.titulo-produtos::after {
+  content: "";
+  width: 70px;
+  height: 2px;
+  background: var(--vinho);
+  display: block;
+  margin: 12px auto 0;
+}
+
+.categorias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.categoria-card {
+  background: var(--branco);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.categoria-card:hover {
+  transform: translateY(-6px);
+}
+
+.categoria-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.categoria-card span {
+  display: block;
+  background: var(--vinho);
+  color: var(--rosa);
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  background: var(--vinho);
+  color: var(--rosa);
+  text-align: center;
+  padding: 25px;
+  font-size: 14px;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  body {
+    padding-top: 260px;
+  }
+
+  .menu a {
+    padding: 10px 20px;
+    font-size: 11px;
+  }
+}
+
+/* HEADER NORMAL */
+.site-header {
+  background: var(--vinho);
+  transition: all 0.3s ease;
+}
+
+.header-inner {
+  padding: 35px 20px 30px;
+  transition: padding 0.3s ease;
+}
+
+/* LOGO */
+.logo-img {
+  width: 200px;
+  transition: width 0.3s ease;
+}
+
+/* ESTADO COMPACTO AO SCROLL */
+.site-header.shrink .header-inner {
+  padding: 16px 20px;
+}
+
+.site-header.shrink .logo-img {
+  width: 140px;
+}
+
