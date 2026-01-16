@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Jogos Americanos | Feito no Lar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="header-inner">
+
+      <img src="assets/images/logo.jpg" alt="Feito no Lar" class="logo-img">
+
+      <nav class="menu">
+        <a href="Inicio.html">Inicio</a>
+        <a href="#">Todos</a>
+        <a href="#">Personalizar</a>
+        <a href="https://instagram.com/feito_no_lar" target="_blank">Instagram</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ================= BENEFÍCIOS ================= -->
+<section class="beneficios">
+  <div class="beneficios-container">
+
+    <!-- FRETE -->
+    <div class="beneficio">
+      <svg class="icon" viewBox="0 0 64 64">
+        <!-- linhas de movimento -->
+        <line x1="2" y1="22" x2="18" y2="22" />
+        <line x1="2" y1="30" x2="14" y2="30" />
+        <line x1="2" y1="38" x2="18" y2="38" />
+
+        <!-- corpo do caminhão -->
+        <rect x="18" y="18" width="26" height="18" rx="2" />
+        <path d="M44 22h8l6 6v8H44z" />
+
+        <!-- rodas -->
+        <circle cx="26" cy="40" r="3" />
+        <circle cx="48" cy="40" r="3" />
+      </svg>
+
+      <div class="beneficio-texto">
+        <strong>FRETE GRÁTIS</strong>
+        <span>nas compras acima de: R$ 300,00</span>
+      </div>
+    </div>
+
+    <!-- PAGAMENTO -->
+    <div class="beneficio">
+      <svg class="icon" viewBox="0 0 64 64">
+        <rect x="4" y="14" width="56" height="36" rx="5"/>
+        <line x1="4" y1="26" x2="60" y2="26"/>
+        <line x1="10" y1="38" x2="26" y2="38"/>
+      </svg>
+
+      <div class="beneficio-texto">
+        <strong>FORMAS DE PAGAMENTO</strong>
+        <span>Cartão de Crédito / Débito, Dinheiro ou Pix.</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<main>
+
+  <!-- TÍTULO DA CATEGORIA -->
+  <section class="categorias">
+    <h2 class="titulo-produtos">Jogos Americanos</h2>
+
+    <!-- SCROLL HORIZONTAL FORÇADO -->
+    <div class="produtos-scroll">
+      <div class="produtos-track">
+
+        <!-- CARD -->
+    <div class="produto-card" onclick="adicionarCarrinho('Jogo Americano Floral', 79.90)">
+      <img src="assets/images/jogos-americanos.jpg">
+      <div class="produto-info">
+        <strong>Jogo Americano Floral</strong>
+        <span>R$ 79,90</span>
+      </div>
+    </div>
+
+    <div class="produto-card" onclick="adicionarCarrinho('Jogo Americano Linho', 89.90)">
+      <img src="assets/images/jogos-americanos.jpg">
+      <div class="produto-info">
+        <strong>Jogo Americano Linho</strong>
+        <span>R$ 89,90</span>
+      </div>
+    </div>
+
+        <div class="produto-card" onclick="adicionarCarrinho('Jogo Americano Floral', 79.90)">
+      <img src="assets/images/jogos-americanos.jpg">
+      <div class="produto-info">
+        <strong>Jogo Americano Floral</strong>
+        <span>R$ 79,90</span>
+      </div>
+    </div>
+
+    <div class="produto-card" onclick="adicionarCarrinho('Jogo Americano Linho', 89.90)">
+      <img src="assets/images/jogos-americanos.jpg">
+      <div class="produto-info">
+        <strong>Jogo Americano Linho</strong>
+        <span>R$ 89,90</span>
+      </div>
+    </div>
+
+        <div class="produto-card" onclick="adicionarCarrinho('Jogo Americano Floral', 79.90)">
+      <img src="assets/images/jogos-americanos.jpg">
+      <div class="produto-info">
+        <strong>Jogo Americano Floral</strong>
+        <span>R$ 79,90</span>
+      </div>
+    </div>
+
+    <div class="produto-card" onclick="adicionarCarrinho('Jogo Americano Linho', 89.90)">
+      <img src="assets/images/jogos-americanos.jpg">
+      <div class="produto-info">
+        <strong>Jogo Americano Linho</strong>
+        <span>R$ 89,90</span>
+      </div>
+    </div>
+
+      <button class="btn-carrinho" onclick="finalizarPedido()">
+      🛒
+      </button>
+
+
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>© Feito no Lar • Artesanal com amor</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
